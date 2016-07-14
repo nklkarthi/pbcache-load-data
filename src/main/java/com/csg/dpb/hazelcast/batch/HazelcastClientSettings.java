@@ -16,13 +16,18 @@ public class HazelcastClientSettings {
 
     private String address;
 
+    /**
+     * @return Gets the value of address and returns address
+     */
     public String getAddress() {
         return address;
     }
 
+    /**
+     * Sets the address
+     * You can use getAddress() to get the value of address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
-
-
 }

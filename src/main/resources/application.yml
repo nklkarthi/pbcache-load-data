@@ -4,6 +4,7 @@ spring:
 ---
 spring:
   profiles: dev
+server.port: 7002
 hazelcastclient-settings:
-  address: "192.168.1.51:5701"
+  address: "192.168.1.51:7001"
 

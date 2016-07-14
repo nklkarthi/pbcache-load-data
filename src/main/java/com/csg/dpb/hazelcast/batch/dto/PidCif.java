@@ -3,6 +3,7 @@ package com.csg.dpb.hazelcast.batch.dto;
 import com.fasterxml.jackson.annotation.*;
 
 import javax.annotation.Generated;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +16,15 @@ import java.util.Map;
         "pid",
         "entitlements"
 })
-public class PidCif {
+
+/**
+ * PidCif class
+ */
+public class PidCif implements Serializable {
+
+    public PidCif() {
+        super();
+    }
 
     @JsonProperty("pid")
     private String pid;

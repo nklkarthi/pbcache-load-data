@@ -1,6 +1,5 @@
 package com.csg.dpb.hazelcast.batch.config;
 
-import com.hazelcast.core.HazelcastInstance;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -21,12 +20,15 @@ import org.springframework.context.annotation.Configuration;
 public class JobConfiguration {
 
     @Autowired
-    HazelcastInstance hazelcastInstance;
-    @Autowired
     private JobBuilderFactory jobBuilderFactory;
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
+    /**
+     * @param jobs
+     * @param s1
+     * @return
+     */
     @Bean
     public Job consumeWebserviceJob(JobBuilderFactory jobs, Step s1) {
         return jobBuilderFactory.get("consumeWebserviceJob")
@@ -36,6 +38,11 @@ public class JobConfiguration {
                 .build();
     }
 
+    /**
+     * @param reader
+     * @param writer
+     * @return
+     */
     @Bean
     public Step jobStep(ItemReader reader, ItemWriter writer) {
         return stepBuilderFactory.get("jobStep")

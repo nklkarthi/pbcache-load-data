@@ -6,6 +6,8 @@ import org.springframework.batch.item.NonTransientResourceException;
 import org.springframework.batch.item.ParseException;
 import org.springframework.batch.item.UnexpectedInputException;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by nklkarthi on 10/7/16.
@@ -13,7 +15,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RestPidCifReader implements ItemReader<PidCif> {
     @Override
-    public PidCif read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-        return null;
+    public PidCif read() throws Exception {
+        PidCif pidCif = new PidCif();
+        pidCif.setPid("M515622");
+        return pidCif;
     }
+
 }
