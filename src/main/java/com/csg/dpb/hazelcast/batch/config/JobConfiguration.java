@@ -2,6 +2,7 @@ package com.csg.dpb.hazelcast.batch.config;
 
 import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.client.config.XmlClientConfigBuilder;
 import com.hazelcast.core.HazelcastInstance;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -15,12 +16,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.io.File;
+import java.io.IOException;
+
 /**
  * Created by nklkarthi on 10/7/16.
  */
 @Configuration
 @EnableBatchProcessing
+
 public class JobConfiguration {
+
+    @Autowired
+    HazelcastClientSettings hazelcastClientSettings;
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
@@ -28,13 +36,11 @@ public class JobConfiguration {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
-
     @Bean
-    public HazelcastInstance createClient() {
-        ClientConfig config = new ClientConfig();
-        return HazelcastClient.newHazelcastClient(config);
+    public HazelcastInstance hazelcastInstance() throws IOException {
+        ClientConfig clientConfig = new XmlClientConfigBuilder(new File(hazelcastClientSettings.getConfig())).build();
+        return HazelcastClient.newHazelcastClient(clientConfig);
     }
-
 
     /**
      * @param jobs

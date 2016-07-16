@@ -26,13 +26,9 @@
         <password>sit-pass</password>
     </group>
     <network>
-        <smart-routing>true</smart-routing>
         <cluster-members>
-            <address>192.168.1.51:5702</address>
+            <address>192.168.1.51</address>
         </cluster-members>
-        <ssl enabled="false">
-            <factory-class-name>com.hazelcast.examples.MySslFactory</factory-class-name>
-        </ssl>
     </network>
 
 </hazelcast-client>

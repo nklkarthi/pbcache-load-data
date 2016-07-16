@@ -6,28 +6,29 @@ spring:
 
 spring:
   profiles: dev
-  hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-dev.xml
+hazelcast:
+  client:
+    config: /Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-client-dev.xml
 
 ---
 
 spring:
   profiles: sit
-  hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-sit.xml
+
+hazelcast:
+  client:
+    config: /Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-client-sit.xml
 
 ---
 spring:
   profiles: uat
-  hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-uat.xml
+hazelcast:
+  client:
+    config: /Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-client-uat.xml
 
 ---
-
 spring:
   profiles: prod
-  hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-prod.xml
-
-
-
+hazelcast:
+  client:
+    config: /Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-client-prod.xml
