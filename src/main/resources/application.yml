@@ -1,10 +1,33 @@
 spring:
-  profiles.active: dev
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  hazelcast:
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-dev.xml
+
+---
+
+spring:
+  profiles: sit
+  hazelcast:
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-sit.xml
 
 ---
 spring:
-  profiles: dev
-server.port: 7002
-hazelcastclient-settings:
-  address: "192.168.1.51:7001"
+  profiles: uat
+  hazelcast:
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-uat.xml
+
+---
+
+spring:
+  profiles: prod
+  hazelcast:
+    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-prod.xml
+
+
 

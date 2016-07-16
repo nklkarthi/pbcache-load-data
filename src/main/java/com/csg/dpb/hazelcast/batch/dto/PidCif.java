@@ -22,16 +22,16 @@ import java.util.Map;
  */
 public class PidCif implements Serializable {
 
-    public PidCif() {
-        super();
-    }
-
     @JsonProperty("pid")
     private String pid;
     @JsonProperty("entitlements")
     private List<Entitlement> entitlements = new ArrayList<Entitlement>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+    public PidCif() {
+        super();
+    }
 
     /**
      * @return The pid
