@@ -1,11 +1,14 @@
 spring:
-  profiles.active: test
+  profiles:
+    active: test
 
 ---
+
 spring:
   profiles: test
-  hazelcast:
-    config: file:/Users/nklkarthi/github-projects/nklkarthi/pbcache-spring-boot/config/hazelcast-client-dev.xml
+hazelcast:
+  client:
+    config: /Users/nklkarthi/github-projects/nklkarthi/pbcache-load-data/config/hazelcast-client-dev.xml
 
 
 
